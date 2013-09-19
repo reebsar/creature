@@ -1,0 +1,145 @@
+float x=109;
+float y=200;
+  float a=1100;
+  float b=150;
+PFont J;
+PFont Stop;
+
+void setup() {
+  size(1300, 400);
+  J = createFont("Verdana", 10, true);
+  frameRate(170);
+  //noLoop();
+}
+
+void draw() {
+  background(255);
+
+  //tires
+  fill(0);
+  smooth();
+  rectMode(CORNER);
+  rect(x+111, y+75, 30, 70, 13);
+  rect(x-32, y+75, 30, 70, 13);
+
+  //windshield
+  stroke(3, 83, 13);
+  fill(3, 83, 13);
+  curve(x+139, y+30, x, y, x+109, y, x-30, y+30);
+  quad(x, y, x+109, y, x+114, y+50, x-5, y+50);
+  fill(2, 43, 7); //darker green Jeep hood
+
+  beginShape();
+  vertex(x-5, y+50);
+  vertex(x+114, y+50);
+  vertex(x+119, y+55);
+  vertex(x-10, y+55);
+  endShape();
+
+  //line(x-5, y+50, x-10, y+55);
+  //line(x+114, y+50, x+119, y+55);
+  noStroke();
+  fill(3, 83, 13);
+  rect(x-30, y+60, 170, 20);
+  fill(255);
+  quad(x+3, y+3, x+106, y+3, x+111, y+47, x-2, y+47);
+  fill(3, 83, 13);
+
+  //tire shields
+  noStroke();
+  beginShape();
+  vertex(x-11, y+55);
+  vertex(x+120, y+55);
+  vertex(x+114, y+115);
+  vertex(x-5, y+115);
+  endShape();
+  //headlights
+  fill(180);
+  ellipse(x+10, y+70, 18, 18);
+  ellipse(x+99, y+70, 18, 18);
+  //bumper
+  line(x-22, y+105, x+131, y+105);
+  fill(180);
+  beginShape(QUADS);
+  vertex(x-22, y+105);
+  vertex(x+131, y+105);
+  vertex(x+131, y+115);
+  vertex(x-22, y+115);
+  endShape();
+  fill(3, 83, 13);
+  curve(x-2, y+30, x-22, y+105, x+131, y+105, x+111, y+30);
+  fill(180);
+  curve(x-2, y+40, x-22, y+115, x+131, y+115, x+111, y+40);
+
+  //rearview left
+
+  beginShape();
+  vertex(x-5, y+45);
+  vertex(x-19, y+45);
+  vertex(x-19, y+40);
+  vertex(x-24, y+40);
+  vertex(x-24, y+30);
+  vertex(x-9, y+30);
+  vertex(x-9, y+40);
+  vertex(x-4, y+40);
+
+  endShape();
+
+  //rearview right
+
+  beginShape();
+  vertex(x+114, y+45);
+  vertex(x+128, y+45);
+  vertex(x+128, y+40);
+  vertex(x+133, y+40);
+  vertex(x+133, y+30);
+  vertex(x+118, y+30);
+  vertex(x+118, y+40);
+  vertex(x+113, y+40);
+
+  endShape();
+
+
+  //grill
+  fill(180);
+  rect(x+21, y+75, 7, 35, 7);
+  rect(x+31, y+75, 7, 35, 7);
+  rect(x+41, y+75, 7, 35, 7);
+  rect(x+51, y+75, 7, 35, 7);
+  rect(x+61, y+75, 7, 35, 7);
+  rect(x+71, y+75, 7, 35, 7);
+  rect(x+81, y+75, 7, 35, 7);
+
+  textFont(J, 10);
+  fill(180);
+  text("Jeep", x+44, y+70);
+  x=x+1;
+  if (x > 960) {
+    noLoop();
+  }
+
+
+//void mousePressed() {
+  //noLoop();}
+  
+
+  fill(180);
+  noStroke();
+  rect(a+10, b, 20, 190);//stop sign post
+    fill(255, 0, 0,200);
+  beginShape();//stop sign
+  vertex(a, b);
+  vertex(a-40, b-40);
+  vertex(a-40, b-80);
+  vertex(a, b-120);
+  vertex(a+40, b-120);
+  vertex(a+80, b-80);
+  vertex(a+80, b-40);
+  vertex(a+40, b);
+  endShape();
+  //textFont(Stop, 200);
+  //Stop = createFont("Verdana", 100, true);
+  //fill(255);
+  //text("STOP", a , y-100);
+}
+
